@@ -1,13 +1,17 @@
+
 <h3 class="page-title">Books Search</h3>
 <div class="search-container">
   <div class="books-search-form">
-  <input type="text" #searchInput class="search-input" placeholder="Book Title">
-  <button class="btn btn-primary">Search</button>
+  <input type="text" #searchInput class="search-input" placeholder="Book Title" [(ngModel)]="searchInputTerm">
+  <button class="btn btn-primary" (click)="searchBooks()">Search</button>
+  </div>
+  <div class="title-suggestion-list--wrapper">
+    <!-- ngStyle Si necesitamos aplicar un único estilo en línea dinámicamente, podemos usar el enlace de estilo
+    usando la siguiente sintaxis, [style.style-property] en lugar de la directiva ngStyle: -->
+    <ul class="title-suggestion-list" #suggestions [style.display]="bookTitles.length > 0 ? 'block' : 'none'">
+   <li *ngFor="let bookTitle of bookTitles" >{{bookTitle}}</li>
+    </ul>
   </div>
 </div>
-<ul>
-  <li *ngFor="let bookTitle of bookTitles">
-    {{bookTitle}}
-  </li>
-</ul>
+
 

@@ -19,8 +19,7 @@ export class BookStoreService {
     return Observable.of(this.filterBooks(title).map(book => book.title));
   }
   filterBooks(title: string): Book[] {
-    return title ?
-      this.booksList.filter((book) => new RegExp(title, 'gi').test(book.title)) :
+    return title ? this.booksList.filter((book) => new RegExp(title, 'gi').test(book.title)) :
       [];
   }
 

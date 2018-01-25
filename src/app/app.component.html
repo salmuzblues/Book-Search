@@ -1,3 +1,7 @@
 
-<book-search></book-search>
+<div class="container">
+  <book-search (search)="searchBook($event)"></book-search>
+  <books-list [books]="filteredBooks"></books-list>
+</div>
+
 
